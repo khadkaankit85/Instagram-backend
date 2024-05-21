@@ -2,8 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyparser = require('body-parser')
 const app = express()
-const authenticate = require("./src/Routes/authenticate")
-const otpVerification = require("./src/Routes/otpVerification")
+const authenticate = require("./Routes/APIs/authenticate")
+const otpVerification = require("./Routes/APIs/otpVerification")
 
 
 //to parse the body of a http post request
