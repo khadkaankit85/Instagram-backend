@@ -85,5 +85,45 @@ router.post("/post", checklogin, (req, res) => {
 
 
 })
+// request to like a post
+router.put("/like", checklogin, (req, res) => {
+    let postId = req.body.postId
+
+    Post.findByIdAndUpdate(postId, {
+        $push: { likes: req.user._id }
+    },
+        {
+            new: true
+        },
+    ).exec((err, result) => {
+        if (err) {
+            return res.json({ error: err })
+        }
+        else {
+            res.json({ result })
+        }
+    })
+
+})
+// request to like a post
+router.put("/unlike", checklogin, (req, res) => {
+    let postId = req.body.postId
+
+    Post.findByIdAndUpdate(postId, {
+        $pop: { likes: req.user._id }
+    },
+        {
+            new: true
+        },
+    ).exec((err, result) => {
+        if (err) {
+            return res.json({ error: err })
+        }
+        else {
+            res.json({ result })
+        }
+    })
+
+})
 
 module.exports = router
