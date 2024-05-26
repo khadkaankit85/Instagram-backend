@@ -6,6 +6,7 @@ const checklogin = require("../../Middlewares/CheckLogin")
 
 const mongoose = require("mongoose")
 const Post = mongoose.model("Post")
+const User = mongoose.model("User")
 
 // router.get("/like", checklogin, (req, res) => {
 //     console.log(req.user)
@@ -13,6 +14,50 @@ const Post = mongoose.model("Post")
 //         note: 'Liked the video alright'
 //     })
 // })
+
+router.get("/getallposts", (req, res) => {
+    Post.find()
+        .populate("postedBy", "_id name")
+        .then((allposts) => {
+            res.json({
+                post: allposts
+            })
+        })
+})
+
+
+router.get("/myposts", async (req, res) => {
+    let username = req.query.username
+    console.log(username)
+
+    let userid = await User.findOne({ username: username })
+    // ---------------------------------------------------------------------------------
+    // let username = req.body.username
+    // if (!username) return res.status(400).json({
+    //     error: "where is username buddy"
+    // })
+    // this works but whyy do i find all the posts lol, there should be a better way
+    // Post.find().populate("postedBy", "_id name username")
+    //     .then((posts) => {
+    //         let myPosts = posts.filter((posts) => { return posts.postedBy.username === username })
+    //         return res.json({
+    //             myPosts
+    //         })
+    //     })
+    // ------------------------------------------------------------------------------------------
+    console.log(userid)
+    Post.find({
+        postedBy: userid
+    })
+        .populate("postedBy", "_id name username")
+        .then((allposts) => {
+            res.json({
+                post: allposts
+            })
+        })
+
+
+})
 
 router.post("/post", checklogin, (req, res) => {
     let title = req.body.title
