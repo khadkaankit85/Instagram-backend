@@ -40,6 +40,8 @@ const checkLogin = ((req, res, next) => {
                 error: "User doesn't exist"
             })
             req.user = userdata
+            req.user.password = undefined
+            req.user.__v = undefined
 
             next()
         }).catch((err) => {
