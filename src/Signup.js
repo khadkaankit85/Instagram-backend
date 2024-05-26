@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 const User = mongoose.model("User")
 
 
-router.post("*", (req, res) => {
+router.post("/", (req, res) => {
     const { username, email, password, name } = req.body
     if (!email || !password || !username || !name) {
         return res.status(422).json({

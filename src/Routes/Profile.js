@@ -6,8 +6,16 @@ const bcrypt = require('bcryptjs')
 const { configDotenv } = require('dotenv')
 
 
-router.use("/login", require("../Login"))
+router.get("/getProfile", (req, res) => {
+    res.json({
+        message: "message received"
+    })
+})
 
-router.use("/signup", require("../Signup"))
+// router.get("/likepost",(req,res)=>{
+
+// })
+
+// router.post("/getPosts", require("../Signup"))
 
 module.exports = router 
