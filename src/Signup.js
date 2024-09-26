@@ -21,6 +21,8 @@ router.post("/", (req, res) => {
                     return res.status(422).json({ error: "user already exists with that username" })
                 }
                 else {
+
+                    
                     //TODO: need to learn the length range  of salt
                     bcrypt.hash(password, 12)
                         .then((hashedPassword) => {

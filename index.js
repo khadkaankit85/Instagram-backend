@@ -24,6 +24,7 @@ function connectToDatabase() {
         console.log("Error while connecting to the server ", err)
     })
 }
+
 connectToDatabase()
 
 
