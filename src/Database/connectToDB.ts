@@ -1,4 +1,4 @@
-
+import mongoose from 'mongoose'
 export function connectToDatabase() {
     // to connect to database
     mongoose.connect(process.env.MONGO_DB_URI)
