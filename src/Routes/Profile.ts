@@ -1,9 +1,10 @@
-const app = require('express')
-const router = app.Router()
-const mongoose = require("mongoose")
-const User = mongoose.model("User")
-const bcrypt = require('bcryptjs')
-const { configDotenv } = require('dotenv')
+import express from 'express';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import { configDotenv } from 'dotenv';
+
+const router = express.Router();
+const User = mongoose.model('User');
 
 
 router.get("/getProfile", (req, res) => {
