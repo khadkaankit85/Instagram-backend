@@ -1,6 +1,5 @@
 import express, {Router} from "express";
 import checklogin from "../Middlewares/CheckLogin";
-import mongoose from "mongoose";
 import Post from "../Models/post"; // Adjust the path as necessary
 import User from "../Models/userModel"; // Adjust the path as necessary
 
@@ -57,9 +56,9 @@ router.get("/myposts", async (req, res) => {
 
 })
 
-router.post("/post", checklogin, (req, res) => {
-    let title = req.body.title
-    let body = req.body.body
+router.post("/post", checklogin, (req, res ) => {
+    let title = req.body?.title
+    let body = req.body?.body
     let image = req.body.image
     if (!title || !body) return res.status(400).json({
         error: "Please provide all the details to create a post"
