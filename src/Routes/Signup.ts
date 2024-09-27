@@ -1,9 +1,10 @@
-const app = require('express')
-const router = app.Router()
-const mongoose = require("mongoose")
-const bcrypt = require('bcryptjs')
+import express from 'express';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
-const User = mongoose.model("User")
+const router = express.Router();
+const User = mongoose.model("User");
+
 
 
 router.post("/", (req, res) => {
