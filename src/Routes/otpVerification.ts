@@ -1,5 +1,6 @@
 import express from 'express';
 import emailVerifier from '../Controllers/emailVerifier';
+import exp from 'constants';
 
 const router = express.Router();
 let OTP;
@@ -53,5 +54,4 @@ router.post('/verifyOtp', (req, res) => {
 })
 
 
-//
-module.exports = router
+export default router

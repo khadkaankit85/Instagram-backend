@@ -8,6 +8,9 @@ import mongoose from 'mongoose';
 import { config } from 'dotenv';
 import './Models/userModel';
 import './Models/post';
+import authenticator from "./Routes/authenticate"
+import otpSender from "./Routes/otpVerification"
+import userActivityHandler from "./Routes/activities"
 
 config({ path: '.env' });
 
@@ -32,11 +35,12 @@ connectToDatabase()
 //middlewares and routes
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors())
-app.use("/authenticate", require("./src/Routes/authenticate"))
-app.use("/otp", require("./src/Routes/otpVerification"))
 
-app.use("/activities", require("./src/Routes/activities"))
+app.use(cors())
+app.use("/authenticate",authenticator)
+app.use("/otp", otpSender)
+
+app.use("/activities", userActivityHandler)
 
 
 
