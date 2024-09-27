@@ -1,7 +1,7 @@
-const express = require("express")
-const router = express.Router()
-// email verifier tries to send otp by taking an email and returns the value of otp, is any error occurred should be handled with except and server should send server error
-const emailVerifier = require("../../Controllers/emailVerifier")
+import express from 'express';
+import emailVerifier from '../Controllers/emailVerifier';
+
+const router = express.Router();
 let OTP;
 
 router.post('/getOtp', (req, res) => {
