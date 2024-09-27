@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from 'mongoose'
 
 const { ObjectId } = mongoose.Schema.Types
 
@@ -27,4 +27,4 @@ const postSchema = new mongoose.Schema({
         ref: "User"
     }
 })
-mongoose.model("Post", postSchema)
+export default mongoose.model("Post", postSchema)

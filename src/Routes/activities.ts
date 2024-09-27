@@ -1,8 +1,8 @@
 import express, {Router} from "express";
 import checklogin from "../Middlewares/CheckLogin";
 import mongoose from "mongoose";
-import { Post } from "../Models/post"; // Adjust the path as necessary
-import { User } from "../Models/userModel"; // Adjust the path as necessary
+import Post from "../Models/post"; // Adjust the path as necessary
+import User from "../Models/userModel"; // Adjust the path as necessary
 
 
 // router.get("/like", checklogin, (req, res) => {
