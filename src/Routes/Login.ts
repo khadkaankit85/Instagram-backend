@@ -1,10 +1,13 @@
-const app = require('express')
-const router = app.Router()
-const mongoose = require("mongoose")
-const bcrypt = require('bcryptjs')
-const User = mongoose.model("User")
-const jwt = require("jsonwebtoken")
-require("dotenv").config()
+import express from 'express';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const router = express.Router();
+const User = mongoose.model("User");
 
 router.post("/", async (req, res) => {
     const { username, email, password, name } = req.body
