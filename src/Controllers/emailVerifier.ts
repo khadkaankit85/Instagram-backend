@@ -1,7 +1,7 @@
 //this function will take an email as an expression and will return an otp which then will be compared to the otp sent by the user
-let nodemailer = require('nodemailer');
-let dotenv = require("dotenv")
-dotenv.config(".env")
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 
 function createOTP() {
     // Math.floor(Math.random() * (max - min + 1) + min) to create a random number between two numbers
