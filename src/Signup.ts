@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
                 }
                 else {
 
-                    
+
                     //TODO: need to learn the length range  of salt
                     bcrypt.hash(password, 12)
                         .then((hashedPassword) => {

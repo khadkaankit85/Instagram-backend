@@ -38,4 +38,4 @@ function emailVerifier(email) {
     return (OTP)
 
 }
-module.exports = emailVerifier
+export = emailVerifier

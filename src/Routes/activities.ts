@@ -1,9 +1,6 @@
 const app = require("express")
 const router = app.Router()
-
 const checklogin = require("../../Middlewares/CheckLogin")
-
-
 const mongoose = require("mongoose")
 const Post = mongoose.model("Post")
 const User = mongoose.model("User")
