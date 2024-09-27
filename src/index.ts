@@ -1,17 +1,18 @@
-const express = require('express')
-const cors = require('cors')
-const bodyparser = require('body-parser')
-const app = express()
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
-require("dotenv").config(".env")
+const app = express();
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import { config } from 'dotenv';
+import './Models/userModel';
+import './Models/post';
 
-//for database connection
-const mongoose = require('mongoose')
+config({ path: '.env' });
+
 //variables
-const PORT = process.env.PORT_OF_APPLICATION || 3500
-
-require("./Models/userModel")
-require("./Models/post")
+const PORT = process.env.PORT_OF_APPLICATION || 3500;
 
 function connectToDatabase() {
     // to connect to database
@@ -29,8 +30,8 @@ connectToDatabase()
 
 
 //middlewares and routes
-app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use("/authenticate", require("./src/Routes/authenticate"))
 app.use("/otp", require("./src/Routes/otpVerification"))
