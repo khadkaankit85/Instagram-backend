@@ -1,9 +1,9 @@
-const app = require("express")
-const router = app.Router()
-const checklogin = require("../../Middlewares/CheckLogin")
-const mongoose = require("mongoose")
-const Post = mongoose.model("Post")
-const User = mongoose.model("User")
+import express, {Router} from "express";
+import checklogin from "../Middlewares/CheckLogin";
+import mongoose from "mongoose";
+import { Post } from "../Models/post"; // Adjust the path as necessary
+import { User } from "../Models/userModel"; // Adjust the path as necessary
+
 
 // router.get("/like", checklogin, (req, res) => {
 //     console.log(req.user)
@@ -11,6 +11,7 @@ const User = mongoose.model("User")
 //         note: 'Liked the video alright'
 //     })
 // })
+const router = Router()
 
 router.get("/getallposts", (req, res) => {
     Post.find()

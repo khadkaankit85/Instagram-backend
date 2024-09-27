@@ -1,10 +1,12 @@
-const app = require("express")
-const router = app.Router()
-require("dotenv").config()
-const jwt = require("jsonwebtoken")
+import express from "express";
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+import { Request, Response, NextFunction } from "express";
 
-const mongoose = require("mongoose")
-const User = mongoose.model("User")
+dotenv.config();
+
+const User = mongoose.model("User");
 
 
 
@@ -52,4 +54,4 @@ const checkLogin = ((req, res, next) => {
     })
 })
 
-module.exports = checkLogin
+export default checkLogin
